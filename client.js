@@ -36,8 +36,8 @@ const commands = function() {
   // setInterval(() => conn.write("Move: up"), 50);
 };
 
-console.log("Connecting ...");
-connect();
+// console.log("Connecting ...");
+// connect();
 // commands();
 
 
