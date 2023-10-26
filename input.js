@@ -1,5 +1,6 @@
 const { connect } = require("./client");
 const net = require("net");
+const { MOVE_UP_KEY, MOVE_DOWN_KEY, MOVE_LEFT_KEY, MOVE_RIGHT_KEY, cannedMessages } = require('./constants.js');
 
 
 let connection;
@@ -21,41 +22,21 @@ const handleUserInput = function(key) {
   if (key === "\u0003") {
     process.exit();
   }
-  if (key === "w") {
-    // console.log("Move: up");
+  if (key === MOVE_UP_KEY) {
     connection.write("Move: up");
   }
-  if (key === "s") {
-    // console.log("Move: down");
+  if (key === MOVE_DOWN_KEY) {
     connection.write("Move: down");
   }
-  if (key === "d") {
-    // console.log("Move: right");
+  if (key === MOVE_RIGHT_KEY) {
     connection.write("Move: right");
   }
-  if (key === "a") {
-    // console.log("Move: left");
+  if (key === MOVE_LEFT_KEY) {
     connection.write("Move: left");
   }
   // Additional code for sending canned messages:
-  if (key === "1") {
-    connection.write("Say: So long Sucka!");
-  }
-  if (key === "2") {
-    connection.write("Say: GG!");
-  }
-  if (key === "3") {
-    connection.write("Say: Oh NOO!");
-  }
-  if (key === "4") {
-    connection.write("Say: Beat it kid!");
-  }
-  // Other fun stuff:
-  if (key === "5") {
-    connection.write("Say: 😂");
-  }
-  if (key === "6") {
-    connection.write("Say: 🐍");
+  if (cannedMessages[key]) {
+    connection.write(`Say: ${cannedMessages[key]}`);
   }
 };
 
