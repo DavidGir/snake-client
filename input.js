@@ -37,6 +37,26 @@ const handleUserInput = function(key) {
     // console.log("Move: left");
     connection.write("Move: left");
   }
+  // Additional code for sending canned messages:
+  if (key === "1") {
+    connection.write("Say: So long Sucka!");
+  }
+  if (key === "2") {
+    connection.write("Say: GG!");
+  }
+  if (key === "3") {
+    connection.write("Say: Oh NOO!");
+  }
+  if (key === "4") {
+    connection.write("Say: Beat it kid!");
+  }
+  // Other fun stuff:
+  if (key === "5") {
+    connection.write("Say: 😂");
+  }
+  if (key === "6") {
+    connection.write("Say: 🐍");
+  }
 };
 
 // setupInput();
