@@ -37,8 +37,8 @@ const commands = function() {
 };
 
 console.log("Connecting ...");
-// connect();
-commands();
+connect();
+// commands();
 
 
 module.exports = { connect };
